@@ -1,0 +1,709 @@
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc" />
+
+    <meta name="author" content="Ryan Hafen" />
+  
+  
+  <title>packagedocs</title>
+
+    <script src="assets/jquery-1.11.3/jquery.min.js"></script>
+  <link href="assets/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="assets/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+  <script src="assets/bootstrap-3.3.2/shim/html5shiv.min.js"></script>
+  <script src="assets/bootstrap-3.3.2/shim/respond.min.js"></script>
+  <link href="assets/highlight-8.4/tomorrow.css" rel="stylesheet" />
+  <script src="assets/highlight-8.4/highlight.pack.js"></script>
+  <link href="assets/fontawesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+  <script src="assets/stickykit-1.1.1/sticky-kit.min.js"></script>
+  <script src="assets/jqueryeasing-1.3/jquery.easing.min.js"></script>
+  <link href="assets/recliner-0.2.2/recliner.css" rel="stylesheet" />
+  <script src="assets/recliner-0.2.2/recliner.min.js"></script>
+  <script src="assets/recliner-0.2.2/onload.js"></script>
+  <link href="assets/packagedocs-0.0.1/pd.css" rel="stylesheet" />
+  <script src="assets/packagedocs-0.0.1/pd.js"></script>
+  <script src="assets/packagedocs-0.0.1/pd-collapse-toc.js"></script>
+  
+  
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+
+  
+  <header class="navbar navbar-white navbar-fixed-top" role="banner" id="header">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+                <a href="index.html" class="navbar-brand page-scroll">
+        packagedocs - Build Webstite of Package Documentation
+        </a>
+      </div>
+            <nav class="collapse navbar-collapse" role="navigation">
+        <ul class="nav nav-pills pull-right">
+<li>
+<a href='index.html'>Docs</a>
+</li>
+<li class="active">
+<a href='rd.html'>Package Ref</a>
+</li>
+<li>
+<a href='https://github.com/hafen/packagedocs'>Github <i class='fa fa-github'></i></a>
+</li>
+        </ul>
+      </nav>
+          </div>
+  </header>
+
+  <!-- Begin Body -->
+  <div class="container">
+    <div class="row">
+            <div class="col-md-3" id="sidebar-col">
+        <div id="toc">
+          <ul>
+          <li><a href="#programming">Programming</a><ul>
+          <li><a href="#test_fn-test_fn_a-test_fn_b">test_fn: test_fn_a, test_fn_b</a></li>
+          </ul></li>
+          <li><a href="#loess-objects">Loess Objects</a><ul>
+          <li><a href="#test_keyword">test_keyword</a></li>
+          </ul></li>
+          <li><a href="#debugging-tools">Debugging Tools</a><ul>
+          <li><a href="#test_not_exported">test_not_exported</a></li>
+          </ul></li>
+          <li><a href="#package-functions">Package Functions</a><ul>
+          <li><a href="#check_output">check_output</a></li>
+          <li><a href="#deploy_travis">deploy_travis</a></li>
+          <li><a href="#initialize-init_vignettes-packagedocs_init">initialize: init_vignettes, packagedocs_init</a></li>
+          <li><a href="#package_docs">package_docs</a></li>
+          <li><a href="#purl_docs">purl_docs</a></li>
+          <li><a href="#rd_link">rd_link</a></li>
+          <li><a href="#rd_template">rd_template</a></li>
+          <li><a href="#render_docs">render_docs</a></li>
+          <li><a href="#render_rd">render_rd</a></li>
+          </ul></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9" id="content-col">
+      
+<div id="content-top"></div>
+<h1>
+Build Webstite of Package Documentation
+</h1>
+<p>
+<strong>Authors:</strong> <a href="mailto:rhafen@gmail.com">Ryan Hafen</a> [aut, cre],<a href="mailto:schloerke@gmail.com">Barret Schloerke</a> [aut]
+</p>
+<p>
+<strong>Version:</strong> 0.3.6.9999
+</p>
+<p>
+<strong>License:</strong> MIT + file LICENSE
+</p>
+<h4>
+Description
+</h4>
+<p>
+Use rmarkdown to build a package documentation site.
+</p>
+<h4>
+Depends
+</h4>
+<p>
+R (&gt;= 3.1.1)
+</p>
+<h4>
+Imports
+</h4>
+<p>
+htmltools, knitr, lazyrmd, magrittr, rmarkdown, staticdocs, stringr, tools, whisker, yaml
+</p>
+<h4>
+Suggests
+</h4>
+<p>
+devtools, testthat
+</p>
+<div id="programming" class="section level1">
+<h1>Programming</h1>
+<div id="test_fn-test_fn_a-test_fn_b" class="section level2">
+<h2>test_fn: test_fn_a, test_fn_b</h2>
+<h3>
+Test file
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>test_fn_a(a)</div>
+<div>test_fn_b(b)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+a
+</dt>
+<dd class="rd-dd">
+test param number 1
+</dd>
+<dt>
+b
+</dt>
+<dd class="rd-dd">
+test param number 2
+</dd>
+</dl>
+<h4>
+Examples
+</h4>
+<pre class="r"><code><div class='input'>packagedocs:::test_fn_a(4)
+</div>
+<div class='output'>[1] 4
+</div>
+<div class='input'>packagedocs:::test_fn_b(&quot;world&quot;)
+</div>
+<div class='output'>[1] &quot;world&quot;
+</div>
+<div class='input'>hist(rnorm(1000))
+</div>
+<p><img src='rd_files/pic-6.png' alt='' width='540' height='400' /></p></code></pre>
+</div>
+</div>
+<div id="loess-objects" class="section level1">
+<h1>Loess Objects</h1>
+<div id="test_keyword" class="section level2">
+<h2>test_keyword</h2>
+<h3>
+Test Keyword
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>test_keyword(...)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+…
+</dt>
+<dd class="rd-dd">
+pass to print
+</dd>
+</dl>
+</div>
+</div>
+<div id="debugging-tools" class="section level1">
+<h1>Debugging Tools</h1>
+<div id="test_not_exported" class="section level2">
+<h2>test_not_exported</h2>
+<h3>
+Test Not Exported
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>test_not_exported(...)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+…
+</dt>
+<dd class="rd-dd">
+pass to print
+</dd>
+</dl>
+</div>
+</div>
+<div id="package-functions" class="section level1">
+<h1>Package Functions</h1>
+<div id="check_output" class="section level2">
+<h2>check_output</h2>
+<h3>
+Check output for warnings and errors
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>check_output(ff)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+ff
+</dt>
+<dd class="rd-dd">
+path to a .html file output by <code>render()</code>
+</dd>
+</dl>
+</div>
+<div id="deploy_travis" class="section level2">
+<h2>deploy_travis</h2>
+<h3>
+Deploy to Github Pages from Travis-CI
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>deploy_travis(repo&nbsp;=&nbsp;gsub(".*[:/]([^/]*/[^.]*)\\.git", "\\1", system("git config --get remote.origin.url", intern&nbsp;=&nbsp;TRUE)), valid_branches&nbsp;=&nbsp;"master", token_key&nbsp;=&nbsp;"GITHUB_TOKEN", email&nbsp;=&nbsp;"travis@travis-ci.org", name&nbsp;=&nbsp;"Travis CI", allow_pulls&nbsp;=&nbsp;FALSE, output_dir&nbsp;=&nbsp;"_gh-pages")</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+repo
+</dt>
+<dd class="rd-dd">
+character string that has the form USER/REPO
+</dd>
+<dt>
+valid_branches
+</dt>
+<dd class="rd-dd">
+branch name(s) that are allowed to deploy
+</dd>
+<dt>
+token_key
+</dt>
+<dd class="rd-dd">
+key name that will be autofilled
+</dd>
+<dt>
+email
+</dt>
+<dd class="rd-dd">
+email for commit
+</dd>
+<dt>
+name
+</dt>
+<dd class="rd-dd">
+name for commit
+</dd>
+<dt>
+allow_pulls
+</dt>
+<dd class="rd-dd">
+allow pull requests to process. (defaults to FALSE)
+</dd>
+<dt>
+output_dir
+</dt>
+<dd class="rd-dd">
+output directory to put the website in
+</dd>
+</dl>
+</div>
+<div id="initialize-init_vignettes-packagedocs_init" class="section level2">
+<h2>initialize: init_vignettes, packagedocs_init</h2>
+<h3>
+Initialize a new packagedocs project
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>packagedocs_init(code_path&nbsp;=&nbsp;".", docs_path&nbsp;=&nbsp;file.path(code_path, "docs"), package_name&nbsp;=&nbsp;NULL, title&nbsp;=&nbsp;NULL, subtitle&nbsp;=&nbsp;NULL, author&nbsp;=&nbsp;NULL, github_ref&nbsp;=&nbsp;NULL, index_file_rmd&nbsp;=&nbsp;"index.Rmd", rd_file_rmd&nbsp;=&nbsp;"rd.Rmd", build_file&nbsp;=&nbsp;TRUE)</div>
+<div>init_vignettes(code_path&nbsp;=&nbsp;".", title&nbsp;=&nbsp;NULL, subtitle&nbsp;=&nbsp;NULL, author&nbsp;=&nbsp;NULL)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+code_path
+</dt>
+<dd class="rd-dd">
+location of R package (defaults to current directory)
+</dd>
+<dt>
+docs_path
+</dt>
+<dd class="rd-dd">
+location of code directory (defaults to a directory “docs” inside <code>code_path</code>)
+</dd>
+<dt>
+package_name
+</dt>
+<dd class="rd-dd">
+the name of the package, e.g. “packagedocs” (will search in DESCRIPTION if NULL)
+</dd>
+<dt>
+title
+</dt>
+<dd class="rd-dd">
+title of main page (will search in DESCRIPTION if NULL - can be changed later)
+</dd>
+<dt>
+subtitle
+</dt>
+<dd class="rd-dd">
+subtitle of main page (can be changed later)
+</dd>
+<dt>
+author
+</dt>
+<dd class="rd-dd">
+author (can be changed later)
+</dd>
+<dt>
+github_ref
+</dt>
+<dd class="rd-dd">
+the “user/repo” part of a link to github - if NULL or “”, the github link will not be displayed
+</dd>
+<dt>
+index_file_rmd
+</dt>
+<dd class="rd-dd">
+name of index file to be created
+</dd>
+<dt>
+rd_file_rmd
+</dt>
+<dd class="rd-dd">
+name of rd file to be created
+</dd>
+<dt>
+build_file
+</dt>
+<dd class="rd-dd">
+boolean to determine if the build file should be produced
+</dd>
+</dl>
+</div>
+<div id="package_docs" class="section level2">
+<h2>package_docs</h2>
+<h3>
+Generate package docs
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>package_docs(toc&nbsp;=&nbsp;TRUE, toc_depth&nbsp;=&nbsp;2, toc_collapse&nbsp;=&nbsp;FALSE, extra_dependencies&nbsp;=&nbsp;NULL, self_contained&nbsp;=&nbsp;FALSE, ...)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+toc
+</dt>
+<dd class="rd-dd">
+should a table of contents be included?
+</dd>
+<dt>
+toc_depth
+</dt>
+<dd class="rd-dd">
+depth of the table of contents (max is 2 for this template)
+</dd>
+<dt>
+toc_collapse
+</dt>
+<dd class="rd-dd">
+should the table of contents have collapsible subsections?
+</dd>
+<dt>
+extra_dependencies
+</dt>
+<dd class="rd-dd">
+passed to <code><a href=http://www.inside-r.org/packages/cran/rmarkdown/docs/html_document>html_document</a></code>
+</dd>
+<dt>
+self_contained
+</dt>
+<dd class="rd-dd">
+passed to <code><a href=http://www.inside-r.org/packages/cran/rmarkdown/docs/html_document>html_document</a></code>
+</dd>
+<dt>
+…
+</dt>
+<dd class="rd-dd">
+parameters passed to <code><a href=http://www.inside-r.org/packages/cran/rmarkdown/docs/html_document>html_document</a></code>
+</dd>
+</dl>
+</div>
+<div id="purl_docs" class="section level2">
+<h2>purl_docs</h2>
+<h3>
+Generate .R code files from docs
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>purl_docs(docs_base&nbsp;=&nbsp;"docs", code_base&nbsp;=&nbsp;"code")</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+docs_base
+</dt>
+<dd class="rd-dd">
+base diretory where all .Rmd files are located to scrape code from
+</dd>
+<dt>
+code_base
+</dt>
+<dd class="rd-dd">
+base directory of where to put resulting .R files
+</dd>
+</dl>
+</div>
+<div id="rd_link" class="section level2">
+<h2>rd_link</h2>
+<h3>
+Translate a reference to a package function into a link to that function’s documentation in rd.html
+</h3>
+<p class="rd-p">
+This is meant to be used inside your packagedocs .Rmd files
+</p>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>rd_link(txt, rd_page&nbsp;=&nbsp;"rd.html")</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+txt
+</dt>
+<dd class="rd-dd">
+a string or expression referencing a function or other Rd object
+</dd>
+<dt>
+rd_page
+</dt>
+<dd class="rd-dd">
+the string to be used in the href string pointing to the page where Rd documentation is provided
+</dd>
+</dl>
+<h4>
+Details
+</h4>
+<p class="rd-p">
+Instead of using <code><code>myfunction()</code></code> when talking about a package function <code>myfunction</code> inside your .Rmd file, you can use <code><code>rd_link(myfunction())</code></code> or even things like <code><code>rd_link(myfunction(arg1 = 1, ...))</code></code> and it will turn it into an href pointing to the online documentation of your package function <code>myfunction</code> in the page rendered by <code><a href=#render_docs>render_docs</a></code>.
+</p>
+</div>
+<div id="rd_template" class="section level2">
+<h2>rd_template</h2>
+<h3>
+Generate the text to put in a rd.rmd file to build a package function reference
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>rd_template(code_path, rd_index&nbsp;=&nbsp;NULL, exclude&nbsp;=&nbsp;NULL, run_examples&nbsp;=&nbsp;FALSE)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+code_path
+</dt>
+<dd class="rd-dd">
+path to the source code directory of the package
+</dd>
+<dt>
+rd_index
+</dt>
+<dd class="rd-dd">
+path to yaml file with index layout information
+</dd>
+<dt>
+exclude
+</dt>
+<dd class="rd-dd">
+vector of Rd entry names to exclude from the resulting document
+</dd>
+<dt>
+run_examples
+</dt>
+<dd class="rd-dd">
+boolean to determine if examples should be run
+</dd>
+</dl>
+</div>
+<div id="render_docs" class="section level2">
+<h2>render_docs</h2>
+<h3>
+Render packagedocs
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>render_docs(docs_path, code_path, main_toc_collapse&nbsp;=&nbsp;TRUE, rd_toc_collapse&nbsp;=&nbsp;FALSE, render_main&nbsp;=&nbsp;TRUE, render_rd&nbsp;=&nbsp;TRUE, lib_dir&nbsp;=&nbsp;"assets", lib_dir_bak&nbsp;=&nbsp;paste0(lib_dir, "_bak"), view_output&nbsp;=&nbsp;TRUE, rd_index&nbsp;=&nbsp;NULL)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+docs_path
+</dt>
+<dd class="rd-dd">
+location of R Markdown docs directory
+</dd>
+<dt>
+code_path
+</dt>
+<dd class="rd-dd">
+location of R package source directory
+</dd>
+<dt>
+main_toc_collapse
+</dt>
+<dd class="rd-dd">
+use collapsing toc on main page
+</dd>
+<dt>
+rd_toc_collapse
+</dt>
+<dd class="rd-dd">
+use collapsing toc on rd page
+</dd>
+<dt>
+render_main
+</dt>
+<dd class="rd-dd">
+render main page
+</dd>
+<dt>
+render_rd
+</dt>
+<dd class="rd-dd">
+render rd page
+</dd>
+<dt>
+lib_dir
+</dt>
+<dd class="rd-dd">
+put assets in “assets” directory
+</dd>
+<dt>
+lib_dir_bak
+</dt>
+<dd class="rd-dd">
+backup assets directory
+</dd>
+<dt>
+view_output
+</dt>
+<dd class="rd-dd">
+look at the output after render
+</dd>
+<dt>
+rd_index
+</dt>
+<dd class="rd-dd">
+optional path to rd layout yaml (if NULL, will search for “docs_path/rd_index.yaml” and use it if available)
+</dd>
+</dl>
+</div>
+<div id="render_rd" class="section level2">
+<h2>render_rd</h2>
+<h3>
+Generate rd.html file
+</h3>
+<h4>
+Usage
+</h4>
+<pre class="r"><code><div>render_rd(rd_skeleton, code_path, rd_index&nbsp;=&nbsp;NULL, exclude&nbsp;=&nbsp;NULL, output_format&nbsp;=&nbsp;NULL, output&nbsp;=&nbsp;".", output_file_rmd&nbsp;=&nbsp;"rd.Rmd", output_file_html&nbsp;=&nbsp;"rd.html", run_examples&nbsp;=&nbsp;FALSE, verbose&nbsp;=&nbsp;TRUE)</div></code></pre>
+<h4>
+Arguments
+</h4>
+<dl class="rd-dl">
+<dt>
+rd_skeleton
+</dt>
+<dd class="rd-dd">
+path to a .Rmd file that contains the header to use for the rd.Rmd
+</dd>
+<dt>
+code_path
+</dt>
+<dd class="rd-dd">
+path to the source code directory of the package
+</dd>
+<dt>
+rd_index
+</dt>
+<dd class="rd-dd">
+path to yaml file with index layout information
+</dd>
+<dt>
+exclude
+</dt>
+<dd class="rd-dd">
+vector of Rd entry names to exclude from the resulting document
+</dd>
+<dt>
+output_format
+</dt>
+<dd class="rd-dd">
+passed to <code><a href=http://www.inside-r.org/packages/cran/rmarkdown/docs/render>render</a></code> - <code><a href=#package_docs>package_docs</a></code> is used by default
+</dd>
+<dt>
+output
+</dt>
+<dd class="rd-dd">
+directory to put the output_file and output html file
+</dd>
+<dt>
+output_file_rmd
+</dt>
+<dd class="rd-dd">
+combined Rmd file that is created. Should end in “.Rmd”
+</dd>
+<dt>
+output_file_html
+</dt>
+<dd class="rd-dd">
+rendered <code>output_file_rmd</code> file. Should end in “.html”
+</dd>
+<dt>
+run_examples
+</dt>
+<dd class="rd-dd">
+boolean to determine if the examples should be executed in the documentation
+</dd>
+<dt>
+verbose
+</dt>
+<dd class="rd-dd">
+boolean to determine if processing output should be displayed
+</dd>
+</dl>
+</div>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div class="container">
+      <div class="col-md-6">
+                <p>&copy; Ryan Hafen, 2016</p>
+              </div>
+      <div class="col-md-6">
+        <p class="pull-right">created with <a href="https://github.com/hafen/packagedocs">packagedocs</a>
+                  </p>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
